@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     siteName: "RR Bros's Multi Shopping Mall",
     images: [
       {
-        url: "/Logo.png",
+        url: "/favicon.ico",
         width: 1200,
         height: 630,
         alt: "RR Bros's Multi Shopping Mall",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/Logo.png",
+    icon: "/favicon.ico",
   },
 };
 
