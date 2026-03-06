@@ -19,11 +19,20 @@ export default function Hero() {
   const [animating, setAnimating] = useState(false);
   const [direction, setDirection] = useState("next");
 
+  /* preload images */
+  useEffect(() => {
+    SLIDES.forEach((slide) => {
+      const img = new window.Image();
+      img.src = slide.image;
+    });
+  }, []);
+
   const goTo = useCallback(
     (index, dir = "next") => {
       if (animating || index === current) return;
       setDirection(dir);
       setAnimating(true);
+
       setTimeout(() => {
         setCurrent(index);
         setAnimating(false);
@@ -40,6 +49,7 @@ export default function Hero() {
     goTo((current - 1 + SLIDES.length) % SLIDES.length, "prev");
   }, [current, goTo]);
 
+  /* auto slide */
   useEffect(() => {
     const t = setInterval(next, 5000);
     return () => clearInterval(t);
@@ -52,28 +62,28 @@ export default function Hero() {
           from { clip-path: inset(0 0 0 100%); }
           to   { clip-path: inset(0 0 0 0%); }
         }
+
         @keyframes wipePrev {
           from { clip-path: inset(0 100% 0 0); }
           to   { clip-path: inset(0 0% 0 0); }
         }
+
         @keyframes progress {
           from { width: 0%; }
           to   { width: 100%; }
         }
-        .animate-wipe-next  { animation: wipeNext  0.7s cubic-bezier(0.4,0,0.2,1) both; }
-        .animate-wipe-prev  { animation: wipePrev  0.7s cubic-bezier(0.4,0,0.2,1) both; }
-        .animate-progress   { animation: progress  5s linear forwards; }
+
+        .animate-wipe-next  { animation: wipeNext 0.7s cubic-bezier(0.4,0,0.2,1) both; }
+        .animate-wipe-prev  { animation: wipePrev 0.7s cubic-bezier(0.4,0,0.2,1) both; }
+        .animate-progress   { animation: progress 5s linear forwards; }
       `}</style>
 
-      <section className="relative w-full grid overflow-hidden mt-0 md:mt-0 max-[768px]:mt-16">
+      <section className="relative w-full grid overflow-hidden pt-[70px] md:pt-[80px]">
 
         {/* Slides */}
         {SLIDES.map((s, i) => {
           const isActive = i === current;
           const isAnimating = animating && isActive;
-          // Preload current + next slide; skip the rest
-          const isNextSlide = i === (current + 1) % SLIDES.length;
-          const shouldLoad = isActive || isNextSlide;
 
           return (
             <div
@@ -92,33 +102,32 @@ export default function Hero() {
             >
               <Image
                 src={s.image}
-                alt={`Banner slide ${i + 1}`}
+                alt={`RR Bros Banner ${i + 1}`}
                 width={1920}
                 height={600}
-                // Slide 0: priority handles eager loading — never combine with loading prop
-                // Slide 1 (next): eager so it's ready when carousel advances
-                // Slide 2+: lazy — don't waste bandwidth upfront
-                priority={i === 0}
-                loading={i === 0 ? undefined : shouldLoad ? "eager" : "lazy"}
-                fetchPriority={i === 0 ? "high" : isNextSlide ? "low" : "auto"}
-                quality={85}
-                className="w-full h-auto object-contain block max-[768px]:object-cover"
+                priority
+                loading="eager"
+                fetchPriority="high"
+                quality={90}
+                className="w-full h-auto object-cover block"
                 sizes="100vw"
               />
             </div>
           );
         })}
 
-        {/* Left Arrow */}
+        {/* LEFT ARROW */}
         <button
           onClick={prev}
           aria-label="Previous"
           className="absolute left-6 top-1/2 -translate-y-1/2 z-10
-            w-12 h-12 rounded-full border border-white/50 bg-black/25
-            backdrop-blur-sm text-white flex items-center justify-center cursor-pointer
-            transition-all duration-[250ms]
-            hover:bg-white/20 hover:border-white hover:scale-[1.08]
-            max-[768px]:left-3 max-[768px]:w-9 max-[768px]:h-9"
+  w-12 h-12 rounded-full border border-white/50 bg-black/25
+  backdrop-blur-sm text-white flex items-center justify-center
+  transition-all duration-300
+  hover:bg-white/20 hover:border-white hover:scale-105
+  max-[768px]:left-3
+  max-[768px]:w-9
+  max-[768px]:h-9"
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
             className="w-5 h-5 max-[768px]:w-4 max-[768px]:h-4">
@@ -126,16 +135,18 @@ export default function Hero() {
           </svg>
         </button>
 
-        {/* Right Arrow */}
+        {/* RIGHT ARROW */}
         <button
           onClick={next}
           aria-label="Next"
           className="absolute right-6 top-1/2 -translate-y-1/2 z-10
-            w-12 h-12 rounded-full border border-white/50 bg-black/25
-            backdrop-blur-sm text-white flex items-center justify-center cursor-pointer
-            transition-all duration-[250ms]
-            hover:bg-white/20 hover:border-white hover:scale-[1.08]
-            max-[768px]:right-3 max-[768px]:w-9 max-[768px]:h-9"
+  w-12 h-12 rounded-full border border-white/50 bg-black/25
+  backdrop-blur-sm text-white flex items-center justify-center
+  transition-all duration-300
+  hover:bg-white/20 hover:border-white hover:scale-105
+  max-[768px]:right-3
+  max-[768px]:w-9
+  max-[768px]:h-9"
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
             className="w-5 h-5 max-[768px]:w-4 max-[768px]:h-4">
@@ -143,7 +154,7 @@ export default function Hero() {
           </svg>
         </button>
 
-        {/* Dots */}
+        {/* DOTS */}
         <div className="absolute bottom-7 left-1/2 -translate-x-1/2 z-10 flex items-center gap-[10px] max-[768px]:bottom-4 max-[768px]:gap-2">
           {SLIDES.map((_, i) => (
             <button
@@ -160,15 +171,13 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* Progress Bar */}
+        {/* PROGRESS BAR */}
         <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-white/15 z-10">
-          <div
-            key={current}
-            className="h-full bg-[#2fc4b2] animate-progress"
-          />
+          <div key={current} className="h-full bg-[#2fc4b2] animate-progress" />
         </div>
 
       </section>
+
       <AboutSection />
       <Ticker />
       <Categories />
