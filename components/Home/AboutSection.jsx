@@ -37,17 +37,11 @@ export default function AboutSection() {
             Welcome to RR Bro,s<br></br> Multi Shopping Mall
           </h2>
           <p className="text-[15px] text-[#4a3525] leading-[1.85] mb-10 max-w-[580px]">
-            Bhimavaram Delicious Biryanis is a popular restaurant located in Tagarapuvalasa,
-            Visakhapatnam, known for serving a wide variety of mouth-watering dishes. From
-            authentic Andhra-style biryanis to crispy starters, sizzling tandoori specials,
-            flavorful noodles, and fried rice – we have something for everyone. Our dishes are
-            prepared with fresh ingredients and traditional recipes to ensure rich taste and
-            quality in every bite. You can order your favorite meals easily through Zomato and
-            Swiggy, or directly from our own mobile app – Bhimavaram Delicious Biryanis App –
-            for quicker service and exclusive deals. Whether you're dining at home with family
-            or planning a gathering with friends, our food is perfect for every occasion. We
-            take pride in fast delivery, hygienic preparation, and customer satisfaction.
-            Experience the true flavors of Bhimavaram right here in Visakhapatnam.
+            RR Bros's Multi Shopping Mall is a trusted shopping destination known for its specialty in Pelli Dandalu (wedding garlands). With over 2 years of experience since our ready-made store entry in 2024, we have grown into a large multi-category shopping complex serving customers with quality products and excellent service.
+
+            Our store offers a wide range of collections including Men’s Wear, Women’s Wear, Kids Wear, Jewellery, and Sandals, making it a complete family shopping destination under one roof. We focus on providing stylish, high-quality, and affordable products for every occasion, especially weddings and festive events.
+
+            Founded by Proprietor Raja Reddy, RR Bros's Multi Shopping Mall is committed to delivering the best shopping experience with variety, quality, and customer satisfaction.
           </p>
         </div>
 

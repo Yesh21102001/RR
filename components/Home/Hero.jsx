@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import AboutSection from "./AboutSection";
 import Ticker from "./Ticker";
 import Categories from "./Cateegories";
@@ -46,7 +47,6 @@ export default function Hero() {
 
   return (
     <>
-      {/* Keyframe animations injected globally */}
       <style>{`
         @keyframes wipeNext {
           from { clip-path: inset(0 0 0 100%); }
@@ -71,6 +71,10 @@ export default function Hero() {
         {SLIDES.map((s, i) => {
           const isActive = i === current;
           const isAnimating = animating && isActive;
+          // Preload current + next slide; skip the rest
+          const isNextSlide = i === (current + 1) % SLIDES.length;
+          const shouldLoad = isActive || isNextSlide;
+
           return (
             <div
               key={s.id}
@@ -86,10 +90,20 @@ export default function Hero() {
                 .filter(Boolean)
                 .join(" ")}
             >
-              <img
+              <Image
                 src={s.image}
-                alt="banner"
+                alt={`Banner slide ${i + 1}`}
+                width={1920}
+                height={600}
+                // Slide 0: priority handles eager loading — never combine with loading prop
+                // Slide 1 (next): eager so it's ready when carousel advances
+                // Slide 2+: lazy — don't waste bandwidth upfront
+                priority={i === 0}
+                loading={i === 0 ? undefined : shouldLoad ? "eager" : "lazy"}
+                fetchPriority={i === 0 ? "high" : isNextSlide ? "low" : "auto"}
+                quality={85}
                 className="w-full h-auto object-contain block max-[768px]:object-cover"
+                sizes="100vw"
               />
             </div>
           );

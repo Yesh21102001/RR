@@ -1,10 +1,10 @@
 "use client";
 
 const features = [
-  { icon: "👁️", title: "See It In Person",    desc: "No surprises — colours and quality exactly as you see it." },
-  { icon: "👐", title: "Try Before You Buy",   desc: "Feel the fabric and try the fit before taking it home." },
-  { icon: "🎀", title: "Personal Styling",     desc: "Our staff helps you find the perfect look for every occasion." },
-  { icon: "🏠", title: "Take It Home Today",   desc: "No waiting, no delivery — carry your purchase home same day." },
+  { icon: "👁️", title: "See It In Person", desc: "No surprises — colours and quality exactly as you see it." },
+  { icon: "👐", title: "Try Before You Buy", desc: "Feel the fabric and try the fit before taking it home." },
+  { icon: "🎀", title: "Personal Styling", desc: "Our staff helps you find the perfect look for every occasion." },
+  { icon: "🏠", title: "Take It Home Today", desc: "No waiting, no delivery — carry your purchase home same day." },
 ];
 
 export default function OfflineBanner() {
@@ -29,7 +29,7 @@ export default function OfflineBanner() {
         }
       `}</style>
 
-      <section className="px-[70px] pb-[110px] max-[960px]:px-6 max-[960px]:pb-[70px]">
+      <section className="bg-white px-[70px] py-[110px] max-[960px]:px-6 max-[960px]:py-[70px]">
         <div className="box-decor relative overflow-hidden rounded-[20px] p-[80px] text-[var(--white)]
           bg-[linear-gradient(135deg,var(--t900)_0%,#0a4a42_100%)]
           grid grid-cols-2 gap-[70px] items-center
