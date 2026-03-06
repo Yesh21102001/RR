@@ -5,10 +5,14 @@ export default function Footer() {
       {/* Top */}
       <div className="flex items-center justify-between flex-wrap gap-6 pb-9 mb-9 border-b border-[rgba(47,196,178,0.1)]">
 
-        {/* Logo */}
-        <div className="font-serif text-[1.7rem] font-semibold text-[var(--white)]">
-          Elegan<em className="italic text-[var(--t300)]">ce</em>
-        </div>
+        {/* Logo Image */}
+      <div className="flex items-center">
+  <img
+    src="/Logo2.png"
+    alt="Logo"
+    className="h-16 w-auto object-contain"
+  />
+</div>
 
         {/* Links */}
         <div className="flex gap-8">

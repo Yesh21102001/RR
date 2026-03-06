@@ -10,7 +10,7 @@ import Visit from "./Visit";
 const SLIDES = [
   { id: 1, image: "/reban2.png" },
   { id: 2, image: "/reban3.png" },
-  { id: 3, image: "/reban2.png" },
+  { id: 3, image: "/reban4.png" },
 ];
 
 export default function Hero() {

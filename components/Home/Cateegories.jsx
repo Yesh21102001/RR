@@ -3,23 +3,23 @@
 const categories = [
   {
     id: 1,
-    title: "Women's Wear",
-    image: "/women.jpg",
+    title: "men's Wear",
+    image: "/1.png",
   },
   {
     id: 2,
-    title: "Men's Wear",
-    image: "/men.jpg",
+    title: "Women's Wear",
+    image: "/3.png",
   },
   {
     id: 3,
     title: "Kids' Wear",
-    image: "/kids.jpg",
+    image: "/2.png",
   },
   {
     id: 4,
     title: "Jewellery",
-    image: "/jewellery.jpg",
+    image: "/4.png",
   },
 ];
 
@@ -50,7 +50,7 @@ export default function Categories() {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {/* Hover overlay */}
-              <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+              <div className="absolute inset-0  opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
             </div>
 
             {/* Title below image */}

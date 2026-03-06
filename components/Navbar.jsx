@@ -18,11 +18,14 @@ export default function Navbar() {
         ${scrolled ? "shadow-[0_4px_24px_rgba(17,124,111,0.1)]" : ""}
         max-[960px]:px-6 max-[960px]:py-[18px]`}
     >
-      {/* Logo */}
-      <div className="font-serif text-[1.7rem] font-semibold tracking-[0.06em] text-[var(--dark)]">
-        Elegan<em className="italic text-[var(--t700)]">ce</em>
-      </div>
-
+      {/* Logo Image */}
+      <div className="flex items-center">
+  <img
+    src="/Logo.png"
+    alt="Logo"
+    className="h-16 w-auto object-contain"
+  />
+</div>
       {/* Links */}
       <ul className="list-none flex gap-10 max-[960px]:hidden">
         <li>
