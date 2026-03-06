@@ -3,20 +3,20 @@ export default function Visit() {
     {
       icon: "📍",
       label: "Address",
-      line1: "123, Main Market Road, Near City Square",
-      line2: "Hyderabad, Telangana 500001",
+      line1: "Ganesh Nagar, Beside Axis ATM",
+      line2: "Visakapatnam, Andhra Pradesh 530048",
     },
     {
       icon: "🕐",
       label: "Store Hours",
-      line1: "Mon - Sat: 10:00 AM - 8:30 PM",
+      line1: "Mon - Sat: 10:00 AM - 9:00 PM",
       line2: "Sunday: 11:00 AM - 7:00 PM",
     },
     {
       icon: "📞",
       label: "Phone",
-      line1: "+91 98765 43210",
-      line2: null,
+      line1: "+91 9666969552",
+      line2: "+91 9666721704",
     },
     {
       icon: "✉️",
@@ -117,7 +117,7 @@ export default function Visit() {
         />
       </div>
 
-      
+
     </section>
   );
 }
