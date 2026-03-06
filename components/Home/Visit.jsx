@@ -116,6 +116,8 @@ export default function Visit() {
           title="Store Location"
         />
       </div>
+
+      
     </section>
   );
 }
