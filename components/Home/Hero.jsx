@@ -7,6 +7,7 @@ import Categories from "./Cateegories";
 import Offlinebanner from "./Offlinebanner";
 import Whyus from "./Whyus";
 import Visit from "./Visit";
+import Ticker1 from "./Ticker1";
 
 const SLIDES = [
   { id: 1, image: "/reban2.png" },
@@ -182,6 +183,7 @@ export default function Hero() {
       <Ticker />
       <Categories />
       <Offlinebanner />
+      <Ticker1 />
       <Whyus />
       <Visit />
     </>
