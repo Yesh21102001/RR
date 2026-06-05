@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -9,10 +11,13 @@ export default function Footer() {
 
         {/* Logo Image */}
         <div className="flex items-center">
-          <img
+          <Image
             src="/Logo2.png"
             alt="Logo"
+            width={64}
+            height={64}
             className="h-16 w-auto object-contain"
+            quality={75}
           />
         </div>
 

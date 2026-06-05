@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 export default function AboutSection() {
   // Replace these URLs with your actual image paths e.g. "/images/card1.jpg"
@@ -18,13 +19,17 @@ export default function AboutSection() {
           {cardImages.map((src, index) => (
             <div
               key={index}
-              className="rounded-[18px] overflow-hidden"
+              className="rounded-[18px] overflow-hidden relative"
               style={{ aspectRatio: "1 / 1" }}
             >
-              <img
+              <Image
                 src={src}
                 alt={`Gallery image ${index + 1}`}
+                fill
                 className="w-full h-full object-cover block"
+                sizes="(max-width: 1024px) 50vw, 230px"
+                loading="lazy"
+                quality={75}
               />
             </div>
           ))}

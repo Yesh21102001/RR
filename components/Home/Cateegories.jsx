@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 const categories = [
   {
@@ -48,10 +49,14 @@ export default function Categories() {
 
             {/* Image */}
             <div className="relative w-full overflow-hidden rounded-2xl aspect-[3/4]">
-              <img
+              <Image
                 src={cat.image}
                 alt={cat.title}
+                fill
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 768px) 50vw, 25vw"
+                loading="lazy"
+                quality={75}
               />
 
               {/* Hover overlay */}

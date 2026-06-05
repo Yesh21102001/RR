@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -20,12 +21,16 @@ export default function Navbar() {
     >
       {/* Logo Image */}
       <div className="flex items-center">
-  <img
-    src="/Logo.png"
-    alt="Logo"
-    className="h-16 w-auto object-contain"
-  />
-</div>
+        <Image
+          src="/Logo.png"
+          alt="Logo"
+          width={64}
+          height={64}
+          className="h-16 w-auto object-contain"
+          priority
+          quality={75}
+        />
+      </div>
       {/* Links */}
       <ul className="list-none flex gap-10 max-[960px]:hidden">
         <li>

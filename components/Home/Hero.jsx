@@ -10,9 +10,9 @@ import Visit from "./Visit";
 import Ticker1 from "./Ticker1";
 
 const SLIDES = [
-  { id: 1, image: "/reban2.png" },
-  { id: 2, image: "/reban3.png" },
-  { id: 3, image: "/reban4.png" },
+  { id: 1, image: "/reban2.jpg" },
+  { id: 2, image: "/reban3.jpg" },
+  { id: 3, image: "/reban4.jpg" },
 ];
 
 export default function Hero() {
@@ -20,13 +20,6 @@ export default function Hero() {
   const [animating, setAnimating] = useState(false);
   const [direction, setDirection] = useState("next");
 
-  /* preload images */
-  useEffect(() => {
-    SLIDES.forEach((slide) => {
-      const img = new window.Image();
-      img.src = slide.image;
-    });
-  }, []);
 
   const goTo = useCallback(
     (index, dir = "next") => {
@@ -106,10 +99,10 @@ export default function Hero() {
                 alt={`RR Bros Banner ${i + 1}`}
                 width={1920}
                 height={600}
-                priority
-                loading="eager"
-                fetchPriority="high"
-                quality={90}
+                priority={i === 0}
+                loading={i === 0 ? "eager" : "lazy"}
+                fetchPriority={i === 0 ? "high" : "low"}
+                quality={75}
                 className="w-full h-auto object-cover block"
                 sizes="100vw"
               />
