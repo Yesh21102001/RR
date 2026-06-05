@@ -14,7 +14,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-[200] flex items-center justify-between
-        px-[70px] py-[22px] bg-[rgba(244,253,251,0.92)] border-b border-[rgba(47,196,178,0.15)]
+        px-[70px] py-[22px] bg-[rgba(244,253,251,1)] border-b border-[rgba(47,196,178,0.15)]
         transition-shadow duration-300
         ${scrolled ? "shadow-[0_4px_24px_rgba(17,124,111,0.1)]" : ""}
         max-[960px]:px-6 max-[960px]:py-[18px]`}
