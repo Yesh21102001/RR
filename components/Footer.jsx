@@ -56,7 +56,7 @@ export default function Footer() {
         <p className="text-[0.75rem]">
           © {year} RR Bro's. All rights reserved. | Designed & Developed by{" "}
           <a
-            href="https://rrbros.in/"
+            href="https://hosthive.online/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[var(--t300)] hover:text-[var(--white)] underline"
